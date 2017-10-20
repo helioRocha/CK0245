@@ -1,15 +1,16 @@
 clc; clear;
 //format("e",8);
-deff('y0=f(degrees)','y0=((degrees*%pi)/180.)');
+deff('y0=deg2rad(degree)','y0=((degree*%pi)/180.)');
+deff('y0=rad2deg(radian)','y0=((radian*180.)/%pi)');
 
 /** transformacoes **/
 
 /** rotacao em torno do eixo-x **/
-deff('y1=Rx(thetax)','y1=[1. 0. 0. 0.; 0. cos(f(thetax)) -sin(f(thetax)) 0.; 0. sin(f(thetax)) cos(f(thetax)) 0.; 0. 0. 0. 1.]');
+deff('y1=Rx(thetax)','y1=[1. 0. 0. 0.; 0. cos(deg2rad(thetax)) -sin(deg2rad(thetax)) 0.; 0. sin(deg2rad(thetax)) cos(deg2rad(thetax)) 0.; 0. 0. 0. 1.]');
 /** rotacao em torno do eixo-y **/
-deff('y2=Ry(thetay)','y2=[cos(f(thetay)) 0. sin(f(thetay)) 0.; 0. 1. 0. 0.; -sin(f(thetay)) 0. cos(f(thetay)) 0.; 0. 0. 0. 1.]');
+deff('y2=Ry(thetay)','y2=[cos(deg2rad(thetay)) 0. sin(deg2rad(thetay)) 0.; 0. 1. 0. 0.; -sin(deg2rad(thetay)) 0. cos(deg2rad(thetay)) 0.; 0. 0. 0. 1.]');
 /** rotacao em torno do eixo-z **/
-deff('y3=Rz(thetaz)','y3=[cos(f(thetaz)) -sin(f(thetaz)) 0. 0.; sin(f(thetaz)) cos(f(thetaz)) 0. 0.; 0. 0. 1. 0.; 0. 0. 0. 1.]');
+deff('y3=Rz(thetaz)','y3=[cos(deg2rad(thetaz)) -sin(deg2rad(thetaz)) 0. 0.; sin(deg2rad(thetaz)) cos(deg2rad(thetaz)) 0. 0.; 0. 0. 1. 0.; 0. 0. 0. 1.]');
 
 /** escala **/ deff('y4=S(sx,sy,sz)','y4=[sx 0. 0. 0.; 0. sy 0. 0.; 0. 0. sz 0.; 0. 0. 0. 1.]');
 
