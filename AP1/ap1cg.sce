@@ -38,6 +38,8 @@ passo1_P2 = T(-a,0.,0.) * passo0_P2;
 passo1_P3 = T(-a,0.,0.) * passo0_P3;
 passo1_P4 = T(-a,0.,0.) * passo0_P4;
 
+passo1 = [passo1_P3 passo1_P4 passo1_P2 passo1_P1]; 
+
 // rotacao: 135deg em torno do eixo-y: [2/5]
 theta2 = 135.; 
 
@@ -45,6 +47,8 @@ passo2_P1 = Ry(theta2) * passo1_P1;
 passo2_P2 = Ry(theta2) * passo1_P2;
 passo2_P3 = Ry(theta2) * passo1_P3;
 passo2_P4 = Ry(theta2) * passo1_P4;
+
+passo2 = [passo2_P3 passo2_P4 passo2_P2 passo2_P1]; 
 
 // rotacao em torno do eixo-x: [3/5]
 h = sqrt(sqrt(50.)**2.-(10/2.)**2.);
@@ -56,6 +60,8 @@ passo3_P2 = Rx(-theta3) * passo2_P2;
 passo3_P3 = Rx(-theta3) * passo2_P3;
 passo3_P4 = Rx(-theta3) * passo2_P4;
 
+passo3 = [passo3_P3 passo3_P4 passo3_P2 passo3_P1]; 
+
 // rotacao em torno do eixo-z: [4/5]
 p3bar = [30. * (1. + D); 10. * (2. + F); 0.; 1.];
 theta4 = rad2deg(atan(p3bar(2) / p3bar(1))); //13.392498deg
@@ -65,12 +71,16 @@ passo4_P2 = Rz(theta4) * passo3_P2;
 passo4_P3 = Rz(theta4) * passo3_P3;
 passo4_P4 = Rz(theta4) * passo3_P4;
 
+passo4 = [passo4_P3 passo4_P4 passo4_P2 passo4_P1]; 
+
 // translacao: levar ponto p3 da origem para o espaco: [5/5]
 
 passo5_P1 = T(p3bar(1), p3bar(2), p3bar(3)) * passo4_P1;
 passo5_P2 = T(p3bar(1), p3bar(2), p3bar(3)) * passo4_P2;
 passo5_P3 = T(p3bar(1), p3bar(2), p3bar(3)) * passo4_P3;
 passo5_P4 = T(p3bar(1), p3bar(2), p3bar(3)) * passo4_P4;
+
+passo5 = [passo5_P3 passo5_P4 passo5_P2 passo5_P1]; 
 
 // processo direto:
 T0 = T(-a, 0., 0.);
