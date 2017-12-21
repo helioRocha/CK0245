@@ -1,4 +1,4 @@
-clc; clear;
+clc; clear; resethistory(); 
 
 /** Exercicio em aula: 19/10/17 **/
 

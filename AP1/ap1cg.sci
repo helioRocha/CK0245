@@ -1,4 +1,4 @@
-clc; clear;
+clc(); clear; resethistory(); 
 //format("e",8);
 deff('y0=deg2rad(degree)','y0=((degree*%pi)/180.)');
 deff('y0=rad2deg(radian)','y0=((radian*180.)/%pi)');
